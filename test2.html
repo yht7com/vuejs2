@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>VueJS2 使用条件判断-vuejs实战教程[云海天教程]</title>
+    <meta name="keywords" content="Vue.js 教程,vue教程,新手入门教程,vue实例教程,vue基础教程,vue教程案例实战项目,最全vue项目实战">
+    <meta name="description" content="Vuejs使用条件判断,vuejs实战教程">
+
+	</head>
+	<body>
+    <div id="app">
+      <!-- 第三步输出 -->
+       <h1 v-if="finished">{{ message }}</h1>
+
+        <!-- 字符串判断类似v-if = "number = 'hello' " -->
+       <h2 v-if=" number > 10">我大于10</h2>
+       <h2 v-else-if=" number >= 5 && number <= 10 ">我大于5 小于10</h2>
+       <h2 v-else=" number < 5 ">我小于5</h2>
+
+    </div>
+    <!-- 第一步引入 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <!-- 第二步定义 -->
+    <script type="text/javascript">
+      let app = new Vue({
+        el:"#app",
+        data:{
+          message   : "Hello",
+          //添加判断 true 、false
+          finished  : true,
+          //判断数字
+          number : 10
+        }
+      })
+    </script>
+<p>
+
+  <h3>以下内容是浏览器内容输出的</h3>
+  <img src="./images/02.png" ><b>
+  <img src="./images/03.png" >
+
+	</body>
+</html>
