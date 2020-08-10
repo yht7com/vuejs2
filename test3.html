@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>VueJS2 使用条件判断时的一个注意事项引入template模版标签-vuejs实战教程[云海天教程]</title>
+    <meta name="keywords" content="Vue.js 教程,vue教程,新手入门教程,vue实例教程,vue基础教程,vue教程案例实战项目,最全vue项目实战">
+    <meta name="description" content="Vuejs使用条件判断时的一个注意事项引入template模版标签,vuejs实战教程">
+
+	</head>
+	<body>
+    <div id="app">
+      <!-- 第三步输出 -->
+      <!-- 引用 <template></template> 标签 -->
+       <template v-if="finished">
+          <h1 >{{ message }}</h1>
+       </template>
+
+       <template>
+         <h2 v-if=" number > 10">我大于10</h2>
+         <h2 v-else-if=" number >= 5 && number <= 10 ">我大于5 小于10</h2>
+         <h2 v-else=" number < 5 ">我小于5</h2>
+       </template>
+
+    </div>
+    <!-- 第一步引入 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <!-- 第二步定义 -->
+    <script type="text/javascript">
+      let app = new Vue({
+        el:"#app",
+        data:{
+          message   : "Hello",
+          //添加判断 true 、false
+          finished  : true,
+          //判断数字
+          number : 10
+        }
+      })
+    </script>
+<p>
+
+ <h3>以上内容是与test2类似，引用template 标签</h3>
+
+	</body>
+</html>
