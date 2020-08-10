@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>VueJS2 使用Index/key-value/property-value/count 进行循环输出-vuejs实战教程[云海天教程]</title>
+    <meta name="keywords" content="Vue.js 教程,vue教程,新手入门教程,vue实例教程,vue基础教程,vue教程案例实战项目,最全vue项目实战">
+    <meta name="description" content="Vuejs使用Index/key-value/property-value/count 进行循环输出,vuejs实战教程">
+
+	</head>
+	<body>
+<!-- 模仿后台加载 -->
+    <div id="app">
+        <!-- 第三步输出 -->
+        <!-- 循环索引显示 -->
+        <template v-if="loaded">
+            <div class="active" v-for="(article,index) in articles">
+                  <h5><span>{{ article.id }}:</span>{{ article.title }} &nbsp;<span v-if='index === 1' style="color: #0090D3;">我是索引值</span></h5>
+                  <p>{{ article.body }}</p>
+            </div>
+        </template>
+        <template v-else>
+          加载中...3秒后显示
+        </template>
+
+        <hr>
+
+      <template>
+        <div v-for="(value,key) in jsons">
+            <h3>{{ key }}</h3>
+            <p>{{ value }}</p>
+        </div>
+      </template>
+    </div>
+
+
+
+    <!-- 第一步引入 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <!-- 第二步定义 -->
+    <script type="text/javascript">
+
+      let app = new Vue({
+        el:"#app",
+        data:{
+          loaded : false,
+          articles :null,
+          jsons :{
+            '苹果' : '又红又甜',
+            '西瓜' : '又大又圆',
+            '香蕉' : '又黄又香'
+          }
+        },
+        mounted() {
+          //模拟Ajax
+          setTimeout(()=>{
+            this.articles =  [
+              { id : 1, title : '吃苹果的好处', body : '测试苹果内容1' },
+              { id : 2, title : '吃西瓜的好处', body : '测试西瓜内容2' },
+              { id : 3, title : '吃葡萄的好处', body : '测试葡萄内容3' },
+              { id : 4, title : '吃香蕉的好处', body : '测试香蕉内容4' },
+            ];
+            this.loaded = true
+          },3000)
+
+        }
+
+      })
+
+    </script>
+<p>
+
+	</body>
+</html>
