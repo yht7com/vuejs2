@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>VueJS2 Form表单提交 事件-vuejs实战教程[云海天教程]</title>
+    <meta name="keywords" content="Vue.js 教程,vue教程,新手入门教程,vue实例教程,vue基础教程,vue教程案例实战项目,最全vue项目实战">
+    <meta name="description" content="Vuejs Form表单提交 事件,vuejs实战教程">
+
+	</head>
+	<body>
+<!-- 模仿后台加载 -->
+    <div id="app">
+        <!-- 第三步输出 -->
+      <template>
+
+<!-- 定义事件一定要在form 上，不要放button 上 -->
+        <form action="" @submit.prevent="submitData">
+
+          <button>点我点我</button>
+        </form>
+      </template>
+    </div>
+
+    <!-- 第一步引入 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <!-- 第二步定义 -->
+    <script type="text/javascript">
+
+      let app = new Vue({
+        el:"#app",
+        data:{
+          count : 0
+        },
+        methods:{
+          submitData(){
+            alert(this.count++)
+          }
+        }
+
+      })
+
+    </script>
+<p>
+
+	</body>
+</html>
