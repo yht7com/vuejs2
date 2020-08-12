@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>VueJS2 全局组件、局部组件的声明和使用_Components组件-vuejs实战教程[云海天教程]</title>
+    <meta name="keywords" content="Vue.js 教程,vue教程,新手入门教程,vue实例教程,vue基础教程,vue教程案例实战项目,最全vue项目实战">
+    <meta name="description" content="VueJS2 全局组件、局部组件的声明和使用">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" >
+	</head>
+	<body>
+    <div id="app" class="container">
+      <p></p>
+      <!-- 全局组件开始 -->
+     <h3>{{ topic }}</h3>
+      <voter></voter>
+      <voter></voter>
+      <voter></voter>
+       <!-- 全局组件结束 -->
+   <hr >
+ <!-- 局部组件开始 -->
+      <h3>{{ topic2 }}</h3>
+       <voter2></voter2>
+       <voter2></voter2>
+       <!-- 局部组件结束 -->
+    </div>
+    <!-- 第一步引入 -->
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- 第二步定义注册组件 -->
+    <script type="text/javascript">
+      // 全局组件开始
+      //组件中除了el 没有，其他方法都类似可以用，只是写法与之前不一样，必须为函数形式
+      Vue.component('voter',{
+        template : `
+          <button @click='count++' class ='btn btn-success'>全局投票系统 {{ count }}</button>
+        `,
+        //绑定数据
+        data() {
+          return {
+            count: 0
+          }
+        },
+      })
+      // 全局组件结束
+
+      //局部组件开始
+      //里面的跟全局一样
+      let Voter2 = {
+        template : `
+          <button @click='count2++' class ='btn btn-success'>局部投票系统2 {{ count2 }}</button>
+        `,
+        //绑定数据
+        data() {
+          return {
+            count2: 0
+          }
+        }
+      };
+
+      //局部组件结束
+
+      let app = new Vue({
+        el : '#app',
+        data : {
+          topic: '全局组件',
+          topic2: '局部组件'
+        },
+        //局部组件挂靠
+        components:{
+          'voter2' : Voter2
+        }
+      });
+
+    </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" ></script>
+	</body>
+</html>
