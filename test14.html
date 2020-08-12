@@ -19,8 +19,11 @@
    <hr >
  <!-- 局部组件开始 -->
       <h3>{{ topic2 }}</h3>
-       <voter2></voter2>
-       <voter2></voter2>
+    <!--   <voter2></voter2>
+       <voter2></voter2> -->
+
+        <post></post>
+
        <!-- 局部组件结束 -->
     </div>
     <!-- 第一步引入 -->
@@ -41,7 +44,20 @@
             count: 0
           }
         },
-      })
+      });
+
+      Vue.component('voter2',{
+          template : `
+            <button @click='count2++' class ='btn btn-success'>全局投票系统 {{ count2 }}</button>
+          `,
+          //绑定数据
+          data() {
+            return {
+              count2: 0
+            }
+          },
+        });
+
       // 全局组件结束
 
       //局部组件开始
@@ -57,6 +73,20 @@
           }
         }
       };
+      //实现组件嵌套
+      let Post = {
+        template :`
+          <div>
+          <h3>我是测试</h3>
+          <p>欢迎大家来云海天教程网学习~</p>
+          <voter2><voter2>
+          </div>
+        `,
+        //必须要在里面单独注册才行，使用全局voter2 时，屏蔽下面的即可
+        components:{
+            'voter2': Voter2
+        }
+      }
 
       //局部组件结束
 
@@ -68,7 +98,8 @@
         },
         //局部组件挂靠
         components:{
-          'voter2' : Voter2
+          // 'voter2' : Voter2,
+          'post' : Post
         }
       });
 
