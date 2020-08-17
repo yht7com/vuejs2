@@ -24,5 +24,11 @@ vuejs2框架基础教程,vue教程案例实战项目
 5. [VueJS2 子组件向父组件发送消息](https://www.yht7.com/download/vuejs2/test18.html)
 6. [VueJS2 Props中数据的类型和默认值、组件群发消息-事件的广播和监听](https://www.yht7.com/download/vuejs2/test19.html)
 
-
+## Routing路由实例
+1. [VueJS2 初探路由,利用路由锚点访问路由,History模式,路由命名](https://www.yht7.com/download/vuejs2/test20.html)
+2. [VueJS2 路由动态参数获取](https://www.yht7.com/download/vuejs2/test21.html)
+3. [VueJS2 深入了解路由对象,页面与路由对象实现解耦](https://www.yht7.com/download/vuejs2/test22.html)
+4. [VueJS2 实现返回功能,高亮页面对应链接,404页面实现](https://www.yht7.com/download/vuejs2/test23.html)
+5. [VueJS2 使用前缀把路由组织的更好](https://www.yht7.com/download/vuejs2/test24.html)
+6. [VueJS2 单页面跳转,使用redirect属性和replace方法进行页面跳转](https://www.yht7.com/download/vuejs2/test25.html)
 
