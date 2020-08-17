@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>VueJS2 深入了解路由对象_Routing路由-vuejs实战教程[云海天教程]</title>
+		<title>VueJS2 深入了解路由对象,页面与路由对象实现解耦_Routing路由-vuejs实战教程[云海天教程]</title>
     <meta name="keywords" content="Vue.js 教程,vue教程,新手入门教程,vue实例教程,vue基础教程,vue教程案例实战项目,最全vue项目实战">
     <meta name="description" content="深入了解路由对象">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" >
@@ -36,8 +36,15 @@
     `
   };
   let User = {
+    // 这是一种强耦合形式，使用Props 解耦,多个参数往后面加就行，然后在路由参数配置地方添加一下props:true
+    props :[
+      'uid' , 'pid'
+    ],
     template : `
-    <div>User {{ this.$route.params.uid }}</div>
+      <div>
+      User {{ this.$route.params.uid }}(强耦合形式，不推荐)<br>
+      User {{ uid }} - {{ pid }}(解耦形式，推荐)
+      </div>
     `,
     mounted(){
       console.log(this.$route)
@@ -53,7 +60,8 @@
       { path : '/' , component:Home },
       //不管这里的path 怎么修改，下面调用都不用修改，不然每次都得修改2个地方
       { path : '/about' , name : 'about', component:About },
-      { path : '/user/:uid' , name : 'user.show', component:User },
+      // props:true 实现解耦
+      { path : '/user/:uid/post/:pid' , name : 'user.show', component:User,props:true },
     ]
   });
 
