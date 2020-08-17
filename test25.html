@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>VueJS2 单页面跳转,使用redirect属性和replace方法进行页面跳转_Routing路由-vuejs实战教程[云海天教程]</title>
+    <meta name="keywords" content="Vue.js 教程,vue教程,新手入门教程,vue实例教程,vue基础教程,vue教程案例实战项目,最全vue项目实战">
+    <meta name="description" content="单页面跳转">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" >
+	</head>
+	<body>
+   <div id="app" class="container" style="padding-top: 50px;">
+         <p></p>
+    <!-- Props中数据的类型和默认值开始 -->
+         <h3>{{ topic }}</h3>
+
+        <app></app>
+
+       </div>
+
+       <!-- 第一步引入 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 引入路由系统 -->
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+<!-- 第二步定义注册组件 -->
+<script type="text/javascript">
+  let signIn = false;
+
+  let Home = {
+    template : `
+    <div>
+
+    <h3>Home 页面</h3>
+    <button @click.prevent='redirect'>push 跳转</button>
+    </div>
+
+    `,
+    methods:{
+      redirect(){
+        this.$router.push('/hello')
+      }
+    }
+  };
+  let Welcome = {
+    template : `
+    <div>Welcome 页面</div>
+    `,
+    mounted(){
+      if( !signIn ){
+        this.$router.push({ path: '/' });
+      }
+    }
+  };
+
+  let Hello = {
+    template : `
+    <div>
+    <h3>Hello 页面</h3>
+    <button @click.prevent='replace'>replace 跳转</button>
+    </div>
+    `,
+    methods:{
+      replace(){
+        this.$router.replace('/')
+      }
+    }
+  };
+
+
+  // 声明
+  let Router = new VueRouter({
+    routes:[
+      //直接指定redirect 跳转到指定页面
+        // { path : '/' , component:Home , redirect:{ path:'/hello' } },
+      { path : '/' , component:Home },
+      //不管这里的path 怎么修改，下面调用都不用修改，不然每次都得修改2个地方
+      { path : '/welcome' , name : 'welcome', component:Welcome },
+      { path : '/hello' , name : 'hello', component:Hello },
+    ]
+  });
+
+// 利用路由锚点访问路由
+  let Names = {
+    <!-- 不能直接使用<a href='/'>Home 跳转</a>  使用 router-link :to -->
+
+     <!-- 路由命名使用name 的好处，不管声明中path怎么改变，下面都不用修改 -->
+    template : `
+    <ul>
+      <li><router-link :to="{ path:'/' }">Home 跳转</router-link></li>
+    </ul>
+    `
+  };
+
+//注册
+  let App = {
+    template : `
+      <div>
+        <names></names>
+        <router-view></router-view>
+      </div>
+    `,
+    components : {
+      names : Names
+    }
+  };
+
+
+  let app = new Vue({
+    el : '#app',
+    //挂靠
+    router :Router,
+    data : {
+      topic : '单页面跳转,使用redirect属性和replace方法进行页面跳转',
+    },
+    components:{
+      app : App
+    }
+  })
+
+</script>
+<hr >
+<h3>以下内容是浏览器内容输出的</h3>
+<img src="./images/12.png" >
+
+<img src="./images/13.png" >
+   	</body>
+   </html>
