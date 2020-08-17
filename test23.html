@@ -2,9 +2,9 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>VueJS2 实现返回功能_Routing路由-vuejs实战教程[云海天教程]</title>
+		<title>VueJS2 实现返回功能,高亮页面对应链接,404页面实现_Routing路由-vuejs实战教程[云海天教程]</title>
     <meta name="keywords" content="Vue.js 教程,vue教程,新手入门教程,vue实例教程,vue基础教程,vue教程案例实战项目,最全vue项目实战">
-    <meta name="description" content="实现返回功能">
+    <meta name="description" content="实现返回功能,高亮页面对应链接,404页面实现">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" >
 	</head>
 	<body>
@@ -45,14 +45,29 @@
     }
   };
 
+  let NotFound = {
+    template : `
+    <div>
+      <h4>404 页面</h4>
+      <router-link :to="{ path:'/' }">跳转回首页</router-link>
+    </div>
+    `
+  };
+
   // 声明
   let Router = new VueRouter({
+    //链接高亮显示设置样式
+    linkExactActiveClass:'btn btn-success',
+
     // mode: 'hash',//url 默认形式，可不写
     // mode: 'history', //url 清爽模式 切记服务器也要对应配置，参考 https://router.vuejs.org/zh/guide/essentials/history-mode.html#%E5%90%8E%E7%AB%AF%E9%85%8D%E7%BD%AE%E4%BE%8B%E5%AD%90，
     routes:[
       { path : '/' , component:Home },
       //不管这里的path 怎么修改，下面调用都不用修改，不然每次都得修改2个地方
       { path : '/about' , name : 'about', component:About },
+
+      //404页面放到所有路由的最下面
+      { path : '*' , component:NotFound },
     ]
   });
 
@@ -64,6 +79,7 @@
     <ul>
       <li><router-link :to="{ path:'/' }">Home 跳转</router-link></li>
       <li><router-link :to="{ name:'about'}">About 跳转</router-link></li>
+      <li><router-link :to="{ path:'404'}">在url中输入一个没有的链接</router-link></li>
     </ul>
     `
   };
@@ -87,7 +103,7 @@
     //挂靠
     router :Router,
     data : {
-      topic : '路由对象',
+      topic : '实现返回功能',
     },
     components:{
       app : App
@@ -96,6 +112,8 @@
 
 </script>
 <hr >
-
+<h3>以下内容是浏览器内容输出的</h3>
+<img src="./images/10.png" ><br>
+<img src="./images/11.png" ><br>
    	</body>
    </html>
