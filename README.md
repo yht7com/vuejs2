@@ -32,4 +32,4 @@ vuejs2框架基础教程,vue教程案例实战项目
 5. [VueJS2 使用前缀把路由组织的更好](https://www.yht7.com/download/vuejs2/test24.html)
 6. [VueJS2 单页面跳转,使用redirect属性和replace方法进行页面跳转](https://www.yht7.com/download/vuejs2/test25.html)
 7. [VueJS2 全局路由保护器-简单登录模拟](https://www.yht7.com/download/vuejs2/test26.html)
-7. [VueJS2 模拟向服务器请求数据](https://www.yht7.com/download/vuejs2/test27.html)
+8. [VueJS2 模拟向服务器请求数据](https://www.yht7.com/download/vuejs2/test27.html)
