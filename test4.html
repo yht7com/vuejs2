@@ -17,7 +17,17 @@
               <h5><span>{{ article.id }}:</span>{{ article.title }}</h5>
               <p>{{ article.body }}</p>
         </div>
+
+        <hr >
+        <!-- 循环单一对象 -->
+            <ul>
+              <li v-for="arts in articles[1]">
+                {{arts}}
+              </li>
+            </ul>
     </div>
+
+
 <hr >
 <!-- 模仿后台加载 -->
     <div id="app2">
@@ -33,6 +43,8 @@
           加载中...3秒后显示
         </template>
     </div>
+
+
 
 
     <!-- 第一步引入 -->
