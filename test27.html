@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>VueJS2 模拟向服务器请求数据1_Routing路由-vuejs实战教程[云海天教程]</title>
+    <meta name="keywords" content="Vue.js 教程,vue教程,新手入门教程,vue实例教程,vue基础教程,vue教程案例实战项目,最全vue项目实战">
+    <meta name="description" content="初探路由,利用路由锚点访问路由,History模式,路由命名">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" >
+	</head>
+	<body>
+   <div id="app" class="container" style="padding-top: 50px;">
+         <p></p>
+    <!-- Props中数据的类型和默认值开始 -->
+         <h3>{{ topic }}</h3>
+
+        <app></app>
+
+       </div>
+
+       <!-- 第一步引入 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 引入路由系统 -->
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.20.0-0/axios.min.js"></script>
+
+<!-- 第二步定义注册组件 -->
+<script type="text/javascript">
+
+  let Home = {
+    template : `
+    <div>Home 页面</div>
+    `
+  };
+
+  //添加提示
+  let Loader = {
+      data(){
+        return {
+            loading: false
+        }
+      },
+      template : `
+      <div class="text-center text-warning" v-if="loading">正在加载中...</div>
+      `,
+      mounted(){
+          bus.$on('loading',(status)=>{
+              console.log(status);
+              this.loading = status;
+          });
+      }
+  };
+
+  let Post = {
+    template : `
+    <div>
+        <h3>{{ post.title }}</h3>
+        <p> {{ post.body }}</p>
+        <button @click.prevent="nextPost">下一篇文章</button>
+    </div>
+    `,
+      data(){
+        return {
+            post:{
+                title : "",
+                body : ""
+            }
+        }
+      },
+      methods:{
+        nextPost(){
+            this.$router.push({params : { pid: 2 } });
+        },
+      },
+      // mounted(){
+      //   axios.get('./post.json').then( (response) => {
+      //       // console.log(response);
+      //       this.post = response.data;
+      //   });
+      // }
+      //
+      beforeRouteEnter(to , from , next){
+        bus.$emit('loading',true);
+        // axios.get('./post/post.json').then( (response) => {
+          axios.get('./post/post.php').then( (response) => {
+
+            next((vm)=>{
+                vm.post = response.data;
+                bus.$emit('loading',false);
+            })
+        });
+      },
+      beforeRouteUpdate(to , from , next){
+          bus.$emit('loading',true);
+          // axios.get('./post.json').then( (response) => {
+          axios.get('./post/post2.php').then( (response) => {
+
+              this.post = response.data;
+              bus.$emit('loading',false);
+              next();
+          });
+      }
+
+  };
+
+  let bus = new Vue();
+
+
+  // 声明
+  let Router = new VueRouter({
+     routes:[
+      {
+          path : '/' ,
+          name : 'home',
+          component : Home
+      },
+      //不管这里的path 怎么修改，下面调用都不用修改，不然每次都得修改2个地方
+      {
+          path : '/post/:pid' ,
+          name : 'post',
+          component : Post
+      },
+    ]
+  });
+
+  let Navi = {
+      template : `
+      <ul class="nav">
+        <li class="nav-item">
+            <router-link :to="{ name : 'home' }" class="nav-link">主页</router-link>
+        </li>
+        <li class="nav-item">
+            <router-link :to="{ name : 'post' , params : { pid :1 } }" class="nav-link">文章-1</router-link>
+        </li>
+       </ul>
+      `
+  }
+
+
+//注册
+  let App = {
+    template : `
+      <div class="wrapper">
+        <loader></loader>
+        <navi></navi><br>
+        <router-view></router-view>
+      </div>
+    `,
+      components: {
+        'navi' : Navi,
+        'loader' : Loader
+      }
+  };
+
+
+  let app = new Vue({
+    el : '#app',
+    //挂靠
+    router :Router,
+    data : {
+      topic : '模拟向服务器请求数据',
+    },
+    components:{
+      app : App
+    }
+  })
+
+</script>
+
+   	</body>
+   </html>
