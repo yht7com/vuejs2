@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>VueJS2 全局路由保护器-简单登录模拟_Routing路由-vuejs实战教程[云海天教程]</title>
+    <meta name="keywords" content="Vue.js 教程,vue教程,新手入门教程,vue实例教程,vue基础教程,vue教程案例实战项目,最全vue项目实战">
+    <meta name="description" content="全局路由保护器-简单登录模拟">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" >
+	</head>
+	<body>
+   <div id="app" class="container" style="padding-top: 50px;">
+         <p></p>
+    <!-- Props中数据的类型和默认值开始 -->
+         <h3>{{ topic }}</h3>
+
+        <app></app>
+
+
+       </div>
+
+       <!-- 第一步引入 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 引入路由系统 -->
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+<!-- 第二步定义注册组件 -->
+<script type="text/javascript">
+  //设置全局
+  let login = false;
+
+  let Home = {
+    template : `
+    <div>
+    <h3>Home 页面</h3>
+    </div>
+    `,
+    methods:{
+
+    }
+  };
+  let Welcome = {
+    template : `
+    <div>Welcome 页面</div>
+    `,
+    mounted(){
+    },
+
+  };
+
+
+  let User = {
+    template : `
+    <div>
+    <h3>User 页面</h3>
+    </div>
+    `,
+    methods:{
+
+    },
+  };
+
+  let Login = {
+    template : `
+    <div>
+      <h4>用户登录</h4>
+      <button class="btn btn btn-success" @click.prevent ='loginUser'>登录</button>
+    </div>
+    `,
+    methods:{
+      loginUser(){
+        login = true;
+        this.$router.push({ name : 'welcome' });
+      }
+    }
+  }
+
+
+  // 声明
+  let Router = new VueRouter({
+    routes:[
+      //直接指定redirect 跳转到指定页面
+        // { path : '/' , component:Home , redirect:{ path:'/hello' } },
+      {
+        path : '/' ,
+        name : 'home',
+        component : Home ,
+      },
+      //不管这里的path 怎么修改，下面调用都不用修改，不然每次都得修改2个地方
+      {
+        path : '/welcome' ,
+        name : 'welcome',
+        component : Welcome ,
+        meta:{
+          needLogin : true
+        }
+      },
+      {
+        path : '/user' ,
+        name : 'user',
+        component : User,
+        meta:{
+          needLogin : true
+        }
+      },
+      {
+        path : '/login' ,
+        name : 'login',
+        component : Login,
+      },
+    ]
+  });
+
+  //设置路由检查器
+  Router.beforeEach((to, from, next) => {
+     if( to.meta.needLogin && !login){
+        next({ name : 'login' });
+     }
+     next();
+  });
+
+
+  // 利用路由锚点访问路由
+    let Names = {
+      // <!-- 不能直接使用<a href='/'>Home 跳转</a>  使用 router-link :to -->
+
+       <!-- 路由命名使用name 的好处，不管声明中path怎么改变，下面都不用修改 -->
+      template : `
+      <ul>
+        <li><router-link :to="{ name:'welcome' }">Welcome 页面跳转</router-link></li>
+         <li><router-link :to="{ name:'user' }">User 页面跳转</router-link></li>
+      </ul>
+      `
+    };
+
+
+//注册
+  let App = {
+    template : `
+      <div class='wrapper'>
+        <names></names>
+        <router-view></router-view>
+      </div>
+    `,
+    components : {
+      names : Names
+    }
+  };
+
+
+  let app = new Vue({
+    el : '#app',
+    //挂靠
+    router :Router,
+    data : {
+      topic : '全局路由保护器-登录模拟',
+    },
+    components:{
+      app : App
+    }
+  })
+
+</script>
+<hr >
+<!-- <h3>以下内容是浏览器内容输出的</h3> -->
+<!-- <img src="./images/12.png" > -->
+
+   	</body>
+   </html>
