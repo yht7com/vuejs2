@@ -16,7 +16,15 @@
        <h2 v-if=" number > 10">我大于10</h2>
        <h2 v-else-if=" number >= 5 && number <= 10 ">我大于5 小于10</h2>
        <h2 v-else=" number < 5 ">我小于5</h2>
-
+<hr>
+<!-- tab 切换开始 -->
+  <h3 v-show="tab==1">首页</h3>
+  <h3 v-show="tab==2">列表页</h3>
+  <h3 v-show="tab==3">个人中心</h3>
+  <button @click="changeTab" data-id='1'>首页</button>
+  <button @click="changeTab" data-id='2'>列表页</button>
+  <button @click="changeTab" data-id='3'>个人中心</button>
+  <!-- tab 切换结束 -->
     </div>
     <!-- 第一步引入 -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -27,10 +35,18 @@
         el:"#app",
         data:{
           message   : "Hello",
+          tab : 1,
           //添加判断 true 、false
           finished  : true,
           //判断数字
           number : 10
+        },
+        // tab切换方法
+        methods:{
+            changeTab:function(e){
+              // console.log(e)
+              this.tab = e.target.dataset.id;
+            }
         }
       })
     </script>
@@ -38,7 +54,9 @@
 
   <h3>以下内容是浏览器内容输出的</h3>
   <img src="./images/02.png" ><b>
-  <img src="./images/03.png" >
-
+  <img src="./images/03.png" ><b>
+  <img src="./images/14.png" >
+<h3>源码链接:</h3>
+<a href="https://github.com/yht7com/vuejs2" target="_blank" style="color: red">vuejs框架基础教程,vue教程案例实战项目</a>
 	</body>
 </html>
