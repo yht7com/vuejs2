@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>VueJS2 基础补充实战知识-vuejs实战教程[云海天教程]</title>
+    <meta name="keywords" content="Vue.js 教程,vue教程,新手入门教程,vue实例教程,vue基础教程,vue教程案例实战项目,最全vue项目实战">
+    <meta name="description" content="初探路由,利用路由锚点访问路由,History模式,路由命名">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" >
+    <style>
+      .active{
+        color:blue;
+      }
+      .t{
+        border: 1px gray solid;
+        border-spacing: 0px;
+        border-collapse: collapse;
+        width: 1000px;
+      }
+
+      .t td{
+        border: 1px gray solid;
+        padding: 5px;
+      }
+
+      .t th{
+        border: 1px gray solid;
+        padding: 5px;
+      }
+    </style>
+	</head>
+	<body>
+
+
+   <div id="app" class="container" style="padding-top: 50px;">
+         <p></p>
+
+     <table  class="t">
+       <thead>
+       <th>选择</th>
+       <th>操作</th>
+       </thead>
+       <tbody>
+       <tr>
+         <td>简单加减</td>
+         <td>
+           <span>{{ num }}</span>
+           <button @click="add">添加</button>
+           <button @click="sub">减少</button>
+         </td>
+       </tr>
+       <tr>
+         <td>radio</td>
+         <td>
+           <input type="radio" v-model="sex" id="man" value="男">男
+           <input type="radio" v-model="sex" id="woman" value="女">女
+           <br>
+           你选择的性别是 :{{ sex }}<br>
+         </td>
+       </tr>
+       <tr>
+         <td>checkbox 单选</td>
+         <td>
+           <label for="arrge">
+             <input type="checkbox" id="arrge" v-model="isArrge">同意协议
+           </label><br>
+           你选择的性别是 :{{ isArrge }}<br>
+           <button :disabled="!isArrge">下一页</button>
+         </td>
+       </tr>
+       <tr>
+         <td>checkbox 多选</td>
+         <td>
+
+           <input type="checkbox" value="苹果" v-model="likeFruits">苹果
+           <input type="checkbox" value="西瓜" v-model="likeFruits">西瓜
+           <input type="checkbox" value="香蕉" v-model="likeFruits">香蕉
+           <br>
+           你喜欢吃的水果是 :{{ likeFruits }}<br>
+         </td>
+       </tr>
+       <tr>
+         <td>值绑定形式显示</td>
+         <td>
+           <label :for="food" v-for="food in foods">
+             <input type="checkbox" v-model="likeFruits" :value="food" :id="food">{{ food }}</label>
+           <br>
+           你选择的水果是 :{{ likeFruits }}<br>
+         </td>
+       </tr>
+
+       <tr>
+         <td>select 单选</td>
+         <td>
+           <select name="abc"  v-model="selectFruit">
+             <option value="苹果">苹果</option>
+             <option value="西瓜">西瓜</option>
+             <option value="香蕉">香蕉</option>
+           </select>
+           <br>
+           你选择的水果是 :{{ selectFruit }}<br>
+         </td>
+       </tr>
+       <tr>
+         <td>select 多选</td>
+         <td>
+           <select name="abcs"  v-model="selectFruits" multiple>
+             <option value="苹果">苹果</option>
+             <option value="西瓜">西瓜</option>
+             <option value="香蕉">香蕉</option>
+           </select>
+           <br>
+           你选择的水果是 :{{ selectFruits }}<br>
+         </td>
+       </tr>
+       <tr>
+         <td>点击那个就切换那个的颜色</td>
+         <td>
+           <li v-for="(food,index) in foods" @click="liClick(index)" :class="{ active:liIndex == index }">{{ food }}</li>
+         </td>
+       </tr>
+       <tr>
+         <td>v-model双向绑定（实时）</td>
+         <td>
+           <input type="text" v-model="message">
+           <h4>{{ message }}</h4>
+           <button @click="setM">修改message</button>
+         </td>
+       </tr>
+       <tr>
+         <td>v-model修饰符 lazy<br>(按回车或者失去光标)</td>
+         <td>
+           <input type="text" v-model.lazy="message" >
+           <h4>{{ message }}</h4>
+         </td>
+       </tr>
+       <tr>
+         <td>v-model修饰符 number</td>
+         <td>
+           <input type="number" v-model.number="page" >
+           <h4>{{ page }}--{{ typeof page}}</h4>
+         </td>
+       </tr>
+       <tr>
+         <td>v-model修饰符 trim</td>
+         <td>
+           <input type="text" v-model.trim="message2" >
+           <h4>{{ message2 }}</h4>
+         </td>
+       </tr>
+
+       <tr>
+         <td>掌握3个高阶函数</td>
+         <td>
+           <h3> filter \ map \ reduce</h3>
+         </td>
+       </tr>
+
+       </tbody>
+
+     </table>
+
+     <br>
+     <hr>
+     <h2>{{ title5 }}</h2>
+     <table  class="t">
+       <thead>
+         <th>Id</th>
+         <th>水果</th>
+         <th>价格</th>
+         <th>购买数量</th>
+         <th>操作</th>
+       </thead>
+       <tbody>
+       <tr v-for="(fruit,index) in fruits">
+         <td>{{ fruit.id }}</td>
+         <td>{{ fruit.title }}</td>
+         <td>{{ fruit.price | showPrice }}</td>
+         <td>
+           <button @click="inSubF(index)" v-bind:disabled=" fruit.count <= 1 "> - </button>
+           <span>{{ fruit.count }}</span>
+           <button @click="inAddF(index)"> + </button>
+         </td>
+         <td><button @click="removeF(index)">删除</button></td>
+
+       </tr>
+       <tr><td colspan = 5>
+         <h4 v-if="fruits.length > 0">总价格为：{{ totalFruitsPrice | showPrice }}</h4>
+         <h4 v-else>购物车为空</h4></td></tr>
+       </tbody>
+
+     </table>
+
+       <hr>
+        <h3>{{ title }}</h3>
+       <input type="text" v-model="inputValue" @keyup.enter="inputAdd" autofocus="autofocus" placeholder="请输入内容">
+       <section class="main">
+            <ul>
+                <li v-for="(food,index) in foods">
+                    <div>
+                        <span>{{ index+1 }}</span>
+                        <label>{{ food }}</label>
+                        <button @click="remove(index)">点击删除</button>
+                    </div>
+                </li>
+            </ul>
+       </section>
+       <footer class="footer" v-show="foods.length!=0">
+            <span>水果一共有 {{ foods.length }} 条</span>----<button @click="clear">清空水果</button>
+       </footer>
+
+       <hr>
+       <h3>{{ title2 }}</h3>
+       <button @click="getJoke">获取笑话,每次5条</button>
+        <ul>
+            <li v-for="(jk,index) in joke">
+                {{ jk.text }}
+            </li>
+        </ul>
+
+       <hr>
+       <h3>{{ title3 }}</h3>
+       <input type="text"  placeholder="请输入城市" v-model="city" @keyup.enter="searchWearch"><button>查询天气</button><br>
+       默认城市：<a href="javascript:;" @click="changeCity('北京')">北京</a>---<a href="javascript:;" @click="changeCity('上海')">上海</a>
+       <ul>
+           <li v-for="wl in wearherList">
+                <div><span>{{ wl.date }}</span>-<span>{{ wl.low }}到{{ wl.high }}</span>-<span>{{ wl.type }}</span></div>
+           </li>
+       </ul>
+     <hr>
+     <h3>{{ title4 }}</h3>
+     <h4>{{ fullName }}</h4>
+     <h4>总价格：{{ totalPrice }}</h4>
+
+
+     <button @click="inAdd">指定位置加菠萝元素</button>
+     <!--     中间指定位置加内容，绑定key 与后面的值一致-->
+     <ul>
+         <li v-for="food in foods" :key="food">{{ food }}</li>
+     </ul>
+
+
+     <hr>
+
+       </div>
+
+
+       <!-- 第一步引入 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 引入路由系统 -->
+<!--<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>-->
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.20.0-0/axios.min.js"></script>
+
+<!-- 第二步定义注册组件 -->
+<script type="text/javascript">
+//https://api.apiopen.top/api.html#a6d83d3948e044ce92f543fbc332c824 免费接口
+
+    let app = new Vue({
+        el:"#app",
+        data: {
+            num : 1,
+            message:'云海天教程',
+            message2:'',
+            title:'小海记事本',
+            foods:['苹果','西瓜','香蕉'],
+            inputValue:'桃子',
+            title2:'axios请求',
+            joke:['笑话1'],
+            page:1,
+            title3:'天气查询',
+            city:'',
+            wearherList : [],
+            title4:'计算属性',
+            fruits:[
+              {id:1,title:'苹果',price:11.00,count:1},
+              {id:2,title:'西瓜',price:8.00,count:1},
+              {id:3,title:'香蕉',price:6.00,count:1},
+            ],
+            liIndex :0,
+            title5:'水果购物车',
+            sex :'男',
+            isArrge : false,
+            likeFruits : [],
+            selectFruit:'苹果',
+            selectFruits:[],
+        },
+        computed:{
+          fullName:function () {
+            return this.message + ' ' + this.title;
+          },
+          totalPrice:function () {
+            let total = 0;
+            for (let i=0;i < this.fruits.length;i++){
+              total  += this.fruits[i].price;
+            }
+            return total;
+          },
+          totalFruitsPrice(){
+
+            //es5
+            // let total = 0;
+            // for (let i = 0;i< this.fruits.length;i++){
+            //   total += this.fruits[i].price * this.fruits[i].count;
+            // }
+
+            //es6 in 和  of 推荐 of
+            // for (let i in this.fruits){
+            //   total += this.fruits[i].price * this.fruits[i].count;
+            // }
+            //
+            // let total = 0;
+            // for (let item of this.fruits){
+            //   total += item.price * item.count;
+            // }
+            // return total;
+
+
+            // 高阶函数写法：
+            return this.fruits.reduce(function (preValue,fruits){
+              return preValue + fruits.price * fruits.count;
+            },0)
+          },
+        },
+
+        methods:{
+            add () {
+                if(this.num<5){
+                    this.num++;
+                }else{
+                    alert('最大');
+                }
+            },
+            sub () {
+                if(this.num >0){
+                    this.num--;
+                }else{
+                    alert('最小');
+                }
+            },
+            setM:function () {
+                this.message += ' 学习好棒！'
+            },
+            inputAdd:function () {
+                this.foods.push(this.inputValue);
+            },
+            remove:function (index) {
+                this.foods.splice(index,1);
+            },
+            clear:function () {
+                this.foods = [];
+            },
+            //获取api数据
+            getJoke:function () {
+                //https://api.apiopen.top/getSingleJoke?sid=28654780
+                var that = this;//预防this 会变
+
+                axios.get('https://api.apiopen.top/getJoke?page='+that.page+'&count=5&type=video')
+                    .then(function (response) {
+                        console.log(response);
+                        // console.log(response.data.result[0].text);
+                        that.joke = response.data.result;
+                        that.page++;
+                        console.log(that.page);
+                    },function (err) {
+
+                    })
+            },
+            searchWearch:function () {
+                var that = this;
+                axios.get('http://wthrcdn.etouch.cn/weather_mini?city='+this.city)
+                    .then(function (response) {
+                        console.log(response.data.data.forecast);
+                        that.wearherList = response.data.data.forecast;
+                    },function (err) {
+
+                    })
+            },
+            changeCity:function (city) {
+                this.city = city;
+                // 直接调用方法
+                this.searchWearch();
+            },
+            inAdd(){
+              return this.foods.splice(2,0,'菠萝')
+            },
+            liClick(index){
+              return this.liIndex = index;
+            },
+            inAddF (index) {
+              this.fruits[index].count++;
+            },
+            inSubF (index) {
+              this.fruits[index].count--;
+            },
+            removeF (index) {
+              this.fruits.splice(index,1)
+            },
+
+        },
+        filters: {
+            showPrice(price){
+              return "￥" + price.toFixed(2);
+            }
+        }
+    });
+
+
+</script>
+
+   	</body>
+   </html>
