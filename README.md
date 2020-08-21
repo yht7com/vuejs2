@@ -15,7 +15,7 @@ vuejs2框架基础教程,vue教程案例实战项目
 11. [VueJS2 HTML标签、Class样式,sytle内联样式元素属性的数据绑定](https://www.yht7.com/download/vuejs2/test11.html)
 12. [VueJS2 Set给Computed属性赋值,Computed与methods的区别](https://www.yht7.com/download/vuejs2/test12.html)
 13. [VueJS2 输出带样式的HTML,过滤器filters,wacht对数据进行监控](https://www.yht7.com/download/vuejs2/test13.html)
-
+14. [VueJS2 基础补充实战知识](https://www.yht7.com/download/vuejs2/test28.html)
 ## 组件实例
 1. [VueJS2 全局组件、局部组件的声明和使用](https://www.yht7.com/download/vuejs2/test14.html)
 2. [VueJS2 父组件向子组件传递数据,Props变量命名注意事项](https://www.yht7.com/download/vuejs2/test15.html)
