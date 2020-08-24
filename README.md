@@ -23,6 +23,8 @@ vuejs2框架基础教程,vue教程案例实战项目
 4. [VueJS2 向子组件绑定动态数据](https://www.yht7.com/download/vuejs2/test17.html)
 5. [VueJS2 子组件向父组件发送消息](https://www.yht7.com/download/vuejs2/test18.html)
 6. [VueJS2 Props中数据的类型和默认值、组件群发消息-事件的广播和监听](https://www.yht7.com/download/vuejs2/test19.html)
+7. [VueJS2 组件实战补充知识](https://www.yht7.com/download/vuejs2/test29.html)
+8. [VueJS2 Es模块化的导入导出](https://www.yht7.com/download/vuejs2/test30.html)
 
 ## Routing路由实例
 1. [VueJS2 初探路由,利用路由锚点访问路由,History模式,路由命名](https://www.yht7.com/download/vuejs2/test20.html)
