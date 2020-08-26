@@ -25,6 +25,7 @@ vuejs2框架基础教程,vue教程案例实战项目
 6. [VueJS2 Props中数据的类型和默认值、组件群发消息-事件的广播和监听](https://www.yht7.com/download/vuejs2/test19.html)
 7. [VueJS2 组件实战补充知识](https://www.yht7.com/download/vuejs2/test29.html)
 8. [VueJS2 Es模块化的导入导出](https://www.yht7.com/download/vuejs2/test30.html)
+9. [VueJS2 webpack介绍与安装实战演练](https://www.yht7.com/download/vuejs2/test31.html)
 
 ## Routing路由实例
 1. [VueJS2 初探路由,利用路由锚点访问路由,History模式,路由命名](https://www.yht7.com/download/vuejs2/test20.html)
