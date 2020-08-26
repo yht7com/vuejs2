@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Vue CLI3实战-vuejs实战教程[云海天教程]</title>
+  <meta name="keywords" content="Vue.js 教程,vue教程,新手入门教程,vue实例教程,vue基础教程,vue教程案例实战项目,最全vue项目实战">
+  <meta name="description" content="Vue CLI3实战">
+  <style>
+    .t{
+      border: 1px gray solid;
+      border-spacing: 0px;
+      border-collapse: collapse;
+      width: 1100px;
+    }
+    .t td{
+      border: 1px gray solid;
+      padding: 5px;
+    }
+    .t th{
+      border: 1px gray solid;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app" class="container" style="padding-top: 50px;">
+  <p></p>
+  <table  class="t">
+    <thead>
+    <th width="25%">选择</th>
+    <th>操作</th>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="color: red">vuecli-脚手架的介绍和安装(推荐)<br>
+      </td>
+      <td>
+        在电脑cm的中安装 npm install -g @vue/cli  参考： https://cli.vuejs.org/zh/guide/installation.html<br>
+        也可以安装旧版本：https://cli.vuejs.org/zh/guide/creating-a-project.html#%E6%8B%89%E5%8F%96-2-x-%E6%A8%A1%E6%9D%BF-%E6%97%A7%E7%89%88%E6%9C%AC<br>
+        1、vue/cli2 的创建<br>
+        在webstorm 中的 Terminal安装 vue init webpack my-project （自定义配置） 安装好后先从package.json 看起 scripts
+        <br>
+        npm run build 与 npm run dev  执行
+      </td>
+    </tr>
+
+    <tr>
+      <td>安装CLI错误和ESLint规范<br>
+      </td>
+      <td>
+        安装CLI错误:找到电脑C:\Users\Administrator\AppData\Roaming\  下的 npm-cache 文件夹 删掉，重新安装
+        <br>
+        ESLint规范开启后怎么关闭：config/index.js 中 useEslint: true,  改为false
+      </td>
+    </tr>
+    <tr>
+      <td>runtime-compiler和runtime-only的区别<br>
+      </td>
+      <td>
+        runtime-only 运行效率更高，代码量更少
+        <br>
+      </td>
+    </tr>
+    <tr>
+      <td>VueCLI3创建项目和目录结构<br>
+      </td>
+      <td>
+        创建： vue create vuecli3test    参考：https://cli.vuejs.org/zh/guide/creating-a-project.html<br>
+        运行起来查看package.json 下的scripts
+      </td>
+    </tr>
+    <tr>
+      <td>VueCLI3配置文件的查看和修改<br>
+      </td>
+      <td>
+        第一种：在cmd 下面运行 vue ui 后会弹出一个对话框<br>
+        第二种：文件夹下面node_modules/@vue/cli-service/lib/Service.js<br>
+        第三种：根目录下自定义一个vue.config.js(vue.config.js 这个名称不能改固定的)<br>
+        (<a href="#img46">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>箭头函数的使用和this指向<br>
+      </td>
+      <td>
+        (<a href="#img47">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+
+
+
+    </tbody>
+  </table>
+  <hr>
+
+</div>
+<hr>
+<h3 id="img46">13、VueCLI3配置文件的查看和修改</h3>
+<img src="./images/46.jpg" >
+<hr>
+<h3 id="img47">14、箭头函数的使用和this指向</h3>
+<img src="./images/47.jpg" >
+
+</body>
+</html>

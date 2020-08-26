@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>VueJS2 组件补充实战知识-vuejs实战教程[云海天教程]</title>
+  <title>VueJS2 webpack介绍与安装-vuejs实战教程[云海天教程]</title>
   <meta name="keywords" content="Vue.js 教程,vue教程,新手入门教程,vue实例教程,vue基础教程,vue教程案例实战项目,最全vue项目实战">
-  <meta name="description" content="组件补充实战知识">
+  <meta name="description" content="webpack介绍与安装">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" >
   <style>
     .t{
@@ -17,7 +17,6 @@
       border: 1px gray solid;
       padding: 5px;
     }
-
     .t th{
       border: 1px gray solid;
       padding: 5px;
@@ -35,94 +34,250 @@
     </thead>
     <tbody>
     <tr>
-      <td>Es 模块化的导入导出<br>
+      <td style="color: red">cmd安装npm cli 脚手架 报错解决<br>
       </td>
       <td>
-
+       找到电脑C:\Users\Administrator\AppData\Roaming\  下的 npm-cache 文件夹 删掉，重新安装
+      </td>
+    </tr>
+    <tr>
+      <td>webpack介绍与安装<br>
+      </td>
+      <td>
+安装下面的图片操作来执行(<a href="#img15">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>webpack的使用(切记：每次修改后都要在webpack重新发布一次)<br>
+      </td>
+      <td>
+        <a href="/download/vuejs2/webpack/index.html" target="_blank">查看运行效果点击</a>
+在webpack文件夹下面先创建src/js/mathUtils.js文件，写上方法后然后通过 es6  export 导出,在index.js中通过import 引入js/mathUtils.js
+然后在webstorm 中的 Terminal 中进入到对应的文件夹下面执行 webpack ./src/index.js ./dist/bundle.js（将index 中的内容发布到 bundle中）
+        ，最后在index.html 中引用 dist/bundle.js js 文件(<a href="#img17">具体可以参考下面图片</a>)
       </td>
     </tr>
 
+    <tr>
+      <td>webpack222.config.js 和 package.json 的配置<br>
+      </td>
+      <td>
+        在webpack文件夹下面先创建webpack.config.js文件,通过Commonjs  module.exports 导出,里面的path 依赖包，必须先安装,
+        然后在webstorm 中的 Terminal 中进入到对应的文件夹下面执行 npm init  生成 package.json 文件，然后在执行npm install 其他依赖执行。
+        ，找本地的好处是，比如服务器上是3.6，你本地全局是4.1，而直接配置build 后就是本地创建一个3.6中查找）
+        这样在Terminal中执行npm run build 就可以，本地安装npm install webpack@3.6.0 --save-dev 匹配版本，执行后会在package.json 生成devDependencies
+        开发依赖
+        (<a href="#img21">具体可以参考下面图片</a>)
+      </td>
+    </tr>
 
+    <tr>
+      <td>webpack中 css 的相关配置loader<br>
+      </td>
+      <td>
+      添加对应文件夹下的css 文件，然后参考https://www.webpackjs.com/loaders/css-loader/ 安装 npm install --save-dev css-loader
+，完成后配置webpack.config.js 文件中 module 。
+        在参考 https://www.webpackjs.com/loaders/style-loader/ ，安装npm install style-loader --save-dev
+        最后运行 npm run build<br>
+        1、遇到错误 The 'mode' option has not been set, webpack will fallback to 'production' ，参考https://blog.csdn.net/qq_34979346/article/details/99840181
+        解决方案：webpack222.config.js 配置中添加   mode: 'development' // 设置mode<br>
+        2 、遇到错误 UnhandledPromiseRejectionWarning: TypeError: this.getResolve is not a function 当前版本太低，卸载后安装最新，参考https://www.jianshu.com/p/119a825d8bba
+        安装参考https://www.webpackjs.com/guides/installation/
+        (<a href="#img26">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>webpack中 less 的文件处理<br>
+      </td>
+      <td>
+        添加css对应文件夹下的less 文件，然后参考https://www.webpackjs.com/loaders/less-loader/ 在webstorm 中的 Terminal安装 npm install --save-dev less-loader less
+        ，完成后配置webpack.config.js 文件中 module 配置 ,在入口文件index.js中引入，最后执行npm run build
 
+        (<a href="#img28">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>webpack中 图片文件处理<br>
+      </td>
+      <td>
+        添加img对应文件夹下文件，然后参考https://www.webpackjs.com/loaders/url-loader/ 在webstorm 中的 Terminal安装 npm install --save-dev url-loader
+        ，完成后配置webpack.config.js 文件中 module 配置 ,在入口文件index.js中引入，最后执行npm run build
+        注意：如果图片的大小  小于webpack.config.js 中配置 limit 的大小时，可以直接加载运行，要是大于limit 配置的值时，就要在Terminal安装
+        npm install file-loader --save-dev ,配置webpack.config.js中 output 加 publicPath:'dist/' 最后执行npm run build
+        (<a href="#img30">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>webpack中 ES6转Es5的babel<br>
+      </td>
+      <td>
+        参考https://www.webpackjs.com/loaders/babel-loader/ 在webstorm 中的 Terminal安装 npm install --save-dev babel-loader@7 babel-core babel-preset-es2015
+        ，完成后配置webpack.config.js 文件中 module 配置 ,最后执行npm run build
 
+        (<a href="#img32">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>webpack中 使用Vue 的配置过程<br>
+      </td>
+      <td>
+        在webstorm 中的 Terminal安装 npm install --save vue,然后在index.js 中导入，然后在index.html 中app挂载实例
+        执行npm run build 会出现下面的错误，需要在webpack.config.js 文件中配置resolve，然后重新 执行npm run build<br>
+
+        1、错误You are using the runtime-only build of Vue where the template compiler is not available.<br>
+        Either pre-compile the templates into render functions, or use the compiler-included build.
+
+        (<a href="#img34">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+
+    <tr>
+      <td>webpack中 创建Vue template与el的关系<br>
+      </td>
+      <td>
+        开发过程中，index.html 中   <div id='app'></div>一般不改动
+      </td>
+    </tr>
+
+    <tr>
+      <td>webpack中 创建Vue 使用方案<br>
+      </td>
+      <td>
+        在webstorm 中的 Terminal安装 npm install --save-dev vue-loader vue-template-compiler,需要在webpack.config.js 文件中配置
+        const VueLoaderPlugin = require("vue-loader/lib/plugin");   与 plugins
+        ，然后重新 执行npm run build，<br>
+        <span style="color: red">如果需要省略import后缀问题，列如import Cpn from "./Cpn";  在webpack.config.js 中resolve 中添加 extensions:['.js','.css','.vue']</span>
+        <br>
+
+        1、报错Module not found: Error: Can't resolve './vue/App' in 'G:\xmapp\htdocs\vue2\vuejs2\webpack\src'
+        解决方案1.可能是vue-loader 版本太高导致，修改一下package.json 文件中的"vue-loader": "^13.0.0" 版本号，然后npm install 执行npm run build
+        解决方案2、引入的时候写全 import App from './vue/App.vue'，不要省略最后的.vue
+
+        (<a href="#img37">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td> webpack-横幅Plugin的使用<br>
+      </td>
+      <td>
+        需要在webpack.config.js 文件中配置 const webpack = require('webpack')，然后plugins 中new webpack.BannerPlugin('最终版权')
+        ，然后重新 执行npm run build，<br>
+      </td>
+    </tr>
+
+    <tr>
+      <td> webpack-HtmlWebpackPlugin的使用<br>
+      </td>
+      <td>
+        在webstorm 中的 Terminal安装 npm install uglifyjs-webpack-plugin --save-dev 参考：https://webpack.docschina.org/plugins/uglifyjs-webpack-plugin/#root
+        需要在webpack.config.js 文件中配置 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');，然后plugins 中new HtmlWebpackPlugin()
+        ，然后重新 执行npm run build，<br>
+        (<a href="#img39">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>webpack-UglifyjsWebpackPlugin的使用<br>
+      </td>
+      <td>
+        在webstorm 中的 Terminal安装 npm install --save-dev html-webpack-plugin 参考：https://webpack.docschina.org/guides/output-management/#setting-up-htmlwebpackplugin
+        需要在webpack.config.js 文件中配置 const HtmlWebpackPlugin = require('html-webpack-plugin');，然后plugins 中new UglifyJsPlugin()
+        ，然后重新 执行npm run build，<br>
+        (<a href="#img40">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>webpack-dev-server搭建本地服务器<br>
+      </td>
+      <td>
+        在webstorm 中的 Terminal安装 npm install --save-dev webpack-dev-server 参考：https://webpack.docschina.org/guides/development/#using-webpack-dev-server
+        需要在webpack.config.js 文件中配置 devServer,然后到package.json 中scripts 配置 "dev" : "webpack-dev-server",如果想运行后直接打开，就配置 webpack-dev-server --open <br>
+        ，然后重新 执行npm run dev ,此时在js中在添加修改就不需要重新运行,<span style="color: red">等测试好后最后执行npm run build 打包</span><br>
+        (<a href="#img42">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>webpack-配置文件的分离<br>
+        <span style="color: red">本地开发与发布的抽离，推荐</span>
+      </td>
+      <td>
+        目录下创建build文件夹，下面创建common公共文件，prod生成文件，dev开发文件 把之前webpack.config对应的配置放进去
+        <br>
+        在webstorm 中的 Terminal安装 npm install --save-dev webpack-merge 参考：https://webpack.docschina.org/guides/production/#setup
+        <br>
+        在prod 与 dev 文件中，需要引入 对应的const BaseConfig =  require('./common.config');公共文件与 const { merge } = require('webpack-merge');
+        <br>修改对应写法就行，具体参考图 ,删后webpack文件就行，修改配置package.json中指定  "build": "webpack --config build/prod.config.js",
+        "dev": "webpack-dev-server --open  --config build/dev.config.js"
+        <br>
+        因为配置文件路径变了，所以还要修改一下公共文件common中生成的路径 path ，最后重新 执行npm run build 与 npm run dev 就行<br>
+        (<a href="#img44">具体可以参考下面图片</a>)
+      </td>
+    </tr>
     </tbody>
   </table>
   <hr>
 
 </div>
 
+<hr>
+<h3 id="img15">1、webpack介绍与安装</h3>
+<img src="./images/15.png" >
+<img src="./images/16.png" >
+<hr>
+<h3 id="img17">webpack的使用</h3>
+<img src="./images/17.png" >
+<img src="./images/18.png" ><br>
+<img src="./images/19.png" >
+<img src="./images/20.png" >
+<hr>
+<h3 id="img21">2、webpack222.config.js 和 package.json 的配置</h3>
+<img src="./images/21.png" >
+<img src="./images/22.png" ><br>
+<img src="./images/23.png" >
+<img src="./images/24.png" >
+<img src="./images/25.png" >
+<hr>
+<h3 id="img26">3、webpack中 css 的相关配置loader</h3>
+<img src="./images/26.png" >
+<img src="./images/27.png" ><br>
+<hr>
+<h3 id="img28">4、webpack中 less 的文件处理</h3>
+<img src="./images/28.png" >
+<img src="./images/29.png" ><br>
+<hr>
+<h3 id="img30">5、webpack中 图片 文件处理</h3>
+<img src="./images/30.png" >
+<img src="./images/31.png" ><br>
+<hr>
+<h3 id="img32">6、webpack中 webpack中 ES6转Es5的babel</h3>
+<img src="./images/32.png" >
+<img src="./images/33.png" ><br>
 
-<!--  <template id="cpn14">-->
-<!--    <div>-->
-<!--&lt;!&ndash;      我是插槽里面的作用域&ndash;&gt;-->
-<!--      <p>我是标题</p>-->
-<!--      <p>我是内容，哈哈哈</p>-->
-<!--      &lt;!&ndash;   调用的是子类中的isShow： false&ndash;&gt;-->
-<!--      <p v-show="isShow">我是内容2，哈哈哈</p>-->
-<!--    </div>-->
-<!--  </template>-->
-<!--  <template id="cpn15">-->
-<!--    <div>-->
-<!--&lt;!&ndash;  :data给上面传值使用，这里:data 可以随便起名，比如:abc  但要与上面调用一致&ndash;&gt;-->
-<!--      <slot :data="food2s">-->
-<!--        <ul>-->
-<!--          <li v-for="fd2s in food2s">{{  fd2s }}</li>-->
-<!--        </ul>-->
-<!--      </slot>-->
-<!--    </div>-->
-<!--  </template>-->
+<hr>
+<h3 id="img34">7、webpack中 webpack中 ES6转Es5的babel</h3>
+<img src="./images/34.png" >
+<img src="./images/35.png" >
+<img src="./images/36.png" ><br>
+<hr>
+<h3 id="img37">7、webpack中 创建Vue 的使用方案</h3>
+<img src="./images/37.png" >
+<img src="./images/38.png" >
+<hr>
+<h3 id="img39">8、webpack-HtmlWebpackPlugin的使用</h3>
+<img src="./images/39.jpg" >
 
+<hr>
+<h3 id="img40">9、webpack-UglifyjsWebpackPlugin的使用 压缩js代码</h3>
+<img src="./images/40.jpg" >
+<img src="./images/41.jpg" >
+<hr>
+<h3 id="img42">10、webpack-dev-server搭建本地服务器</h3>
+<img src="./images/42.jpg" >
+<img src="./images/43.jpg" >
+<hr>
+<h3 id="img44">11、webpack-配置文件的分离</h3>
+<img src="./images/44.jpg" >
+<img src="./images/45.jpg" >
 
-
-<!--//组件模版的分离写法方法2 end-->
-
-<!--加type="module" 模块-->
-<script src="post/test30-1.js" type="module"></script>
-<script src="post/test30-2.js" type="module"></script>
-<script src="post/test30-3.js" type="module"></script>
-
-<!-- 第一步引入 -->
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-<!-- 第二步定义注册组件 -->
-<script type="text/javascript">
-
-  //作用域插槽
-  const cpn= {
-    template : '#cpn',
-  }
-
-  const app = new Vue({
-    el:"#app",
-    data: {
-      num : 1,
-      num2 : 0,
-      message:'云海天教程',
-      foods:['苹果','西瓜','香蕉'],
-      isShow: true
-    },
-    //注册局部组件(开发中用的比较多)
-    components:{
-      // 基础
-      cpn
-
-    },
-    computed:{
-    },
-    methods:{
-      ctnClick(btn){
-        // console.log('点击',btn)
-        alert('点击了 '+ btn.title)
-      },
-    },
-
-    filters: {
-
-    },
-
-  });
-
-</script>
 
 
 </body>
