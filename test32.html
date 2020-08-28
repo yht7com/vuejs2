@@ -5,6 +5,7 @@
   <title>Vue CLI3实战-vuejs实战教程[云海天教程]</title>
   <meta name="keywords" content="Vue.js 教程,vue教程,新手入门教程,vue实例教程,vue基础教程,vue教程案例实战项目,最全vue项目实战">
   <meta name="description" content="Vue CLI3实战">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" >
   <style>
     .t{
       border: 1px gray solid;
@@ -33,8 +34,7 @@
     </thead>
     <tbody>
     <tr>
-      <td style="color: red">vuecli-脚手架的介绍和安装(推荐)<br>
-      </td>
+      <td style="color: red">vuecli-脚手架的介绍和安装(推荐)</td>
       <td>
         在电脑cm的中安装 npm install -g @vue/cli  参考： https://cli.vuejs.org/zh/guide/installation.html<br>
         也可以安装旧版本：https://cli.vuejs.org/zh/guide/creating-a-project.html#%E6%8B%89%E5%8F%96-2-x-%E6%A8%A1%E6%9D%BF-%E6%97%A7%E7%89%88%E6%9C%AC<br>
@@ -46,8 +46,7 @@
     </tr>
 
     <tr>
-      <td>安装CLI错误和ESLint规范<br>
-      </td>
+      <td>安装CLI错误和ESLint规范</td>
       <td>
         安装CLI错误:找到电脑C:\Users\Administrator\AppData\Roaming\  下的 npm-cache 文件夹 删掉，重新安装
         <br>
@@ -55,24 +54,21 @@
       </td>
     </tr>
     <tr>
-      <td>runtime-compiler和runtime-only的区别<br>
-      </td>
+      <td>runtime-compiler和runtime-only的区别</td>
       <td>
         runtime-only 运行效率更高，代码量更少
         <br>
       </td>
     </tr>
     <tr>
-      <td>VueCLI3创建项目和目录结构<br>
-      </td>
+      <td>VueCLI3创建项目和目录结构</td>
       <td>
         创建： vue create vuecli3test    参考：https://cli.vuejs.org/zh/guide/creating-a-project.html<br>
         运行起来查看package.json 下的scripts
       </td>
     </tr>
     <tr>
-      <td>VueCLI3配置文件的查看和修改<br>
-      </td>
+      <td>VueCLI3配置文件的查看和修改</td>
       <td>
         第一种：在cmd 下面运行 vue ui 后会弹出一个对话框<br>
         第二种：文件夹下面node_modules/@vue/cli-service/lib/Service.js<br>
@@ -81,14 +77,135 @@
       </td>
     </tr>
     <tr>
-      <td>箭头函数的使用和this指向<br>
-      </td>
+      <td>箭头函数的使用和this指向</td>
       <td>
         (<a href="#img47">具体可以参考下面图片</a>)
       </td>
     </tr>
 
-
+    <tr>
+      <td>url的hash和HTML5的history,页面不刷新改url</td>
+      <td>
+        (<a href="#img48">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>路由映射配置和呈现出来</td>
+      <td>
+        1、创建路由组件， 2、配置组件和路由映射关系， 3、使用路由，通过router-link 和router-view <br>
+        (<a href="#img49">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>路由的默认值和修改为history模式</td>
+      <td>
+        (<a href="#img50">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>router-link的其他属性补充</td>
+      <td>
+        tag渲染成对应标签，replace 禁止浏览器来回前进、返回,active-class 修改样式，如果修改的多，可以在router/index.js中添加linkActiveClass<br>
+        模版中就可以省略
+        (<a href="#img51">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>通过代码跳转路由</td>
+      <td>
+        (<a href="#img53">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>vue-router-动态路由的使用</td>
+      <td>
+        参数传递：path:'/user/:userId',接收v-bind:to， 页面显示接收$route.params.userId
+        (<a href="#img54">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>vue-router-路由懒加载的使用<br>
+      </td>
+      <td>
+        (<a href="#img57">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>vue-router-路由的嵌套使用<br>
+      </td>
+      <td>
+        使用 children配置，在哪里调用就要用router-view 显示一下
+        (<a href="#img58">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>vue-router-参数传递<br>
+      </td>
+      <td>
+        params 传递，上面已有，另外一种query ，参考点击 用户3
+        (<a href="#img60">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>vue-router-router和route的由来<br>
+      </td>
+      <td>
+        所有组件都继承自Vue类的原型
+      </td>
+    </tr>
+    <tr>
+      <td>vue-router-全局导航守卫<br>
+        比如点击那个页面就修改那个页面title
+      </td>
+      <td>
+        参考：https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#%E7%BB%84%E4%BB%B6%E5%86%85%E7%9A%84%E5%AE%88%E5%8D%AB<br>
+        首先给页面加 meta，通过router.beforeEach 来实现
+        (<a href="#img63">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>vue-router-keep-alive及其他问题<br>
+      </td>
+      <td>
+        keep-alive 是vue 的组件，为了记录用户离开页面之前的操作，使用keep-alive,然后采用activated设置默认值，<br>在离开之前使用beforeRouteLeave记录
+        <span style="color: red">destroyed 和 activated 方法只有使用keep-alive被操持了状态 使用才有效果</span> <br>
+        限制某个页面里面可以 销毁，使用 exclude，exclude="About,User" 如果有多个需要排除，就用,隔开 切记,后面不能加空格
+        包含的是name: "About",
+        (<a href="#img64">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>tabbar-TabBar和TabBarItem组件封装<br>
+        给TabBarItem传入active图片
+      </td>
+      <td>
+        参考：https://www.bilibili.com/video/BV15741177Eh?p=119
+      创建Tabbar，因里面包含图片跟文字，所以使用插槽系统，所以将图片与文字封装到TabBarItem中，又因通用，所以在此采用插槽，在App中只用引用创建Tabbar、
+        TabBarItem 调用插槽就行 标注好调用插槽的名称。 因底部图片与汉字要保持不同状态，所以在传入一个插槽来控制图片变量，通过v-if 来判断isActive值
+        (<a href="#img67">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>tabbar-TabBarItem和路由结合效果</td>
+      <td>
+        点击底部分类，跳转到对应页面显示内容
+        (<a href="#img70">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>tabbar-TabBarItem的颜色动态控制</td>
+      <td>
+       让底部颜色抽离出自定义颜色， 模版中复杂的操作，都可以抽离到computed 或者 methods 中实现
+        (<a href="#img73">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>tabbar-TabBar 中App 页面抽离</td>
+      <td>
+新建MainTabBar ，将App.vue 中tab-bar-item中的内容都放进去
+        (<a href="#img75">具体可以参考下面图片</a>)
+      </td>
+    </tr>
 
     </tbody>
   </table>
@@ -96,11 +213,72 @@
 
 </div>
 <hr>
-<h3 id="img46">13、VueCLI3配置文件的查看和修改</h3>
+<h3 id="img46">1、VueCLI3配置文件的查看和修改</h3>
 <img src="./images/46.jpg" >
 <hr>
-<h3 id="img47">14、箭头函数的使用和this指向</h3>
+<h3 id="img47">2、箭头函数的使用和this指向</h3>
 <img src="./images/47.jpg" >
+<hr>
+<h3 id="img48">3、url的hash和HTML5的history,页面不刷新改url</h3>
+<img src="./images/48.jpg" >
+<hr>
+<h3 id="img49">4、路由映射配置和呈现出来</h3>
+<img src="./images/49.jpg" >
+<hr>
+<h3 id="img50">5、路由的默认值和修改为history模式</h3>
+<img src="./images/50.jpg" >
+<hr>
+<h3 id="img51">6、router-link的其他属性补充</h3>
+<img src="./images/51.jpg" >
+<img src="./images/52.jpg" >
+<hr>
+<h3 id="img53">7、通过代码跳转路由</h3>
+<img src="./images/53.jpg" >
+<hr>
+<h3 id="img54">8、vue-router-动态路由的使用</h3>
+<img src="./images/54.jpg" >
+<img src="./images/55.jpg" ><br>
+<img src="./images/56.jpg" >
+<hr>
+<h3 id="img57">9、vue-router-动态路由的使用</h3>
+<img src="./images/57.jpg" >
+<hr>
+<h3 id="img58">10、vue-router-动态路由的使用</h3>
+<img src="./images/58.jpg" ><br>
+<img src="./images/59.jpg" >
+<hr>
+<h3 id="img60">11、vue-router-参数传递</h3>
+<img src="./images/60.jpg" ><br>
+<img src="./images/61.jpg" ><br>
+<img src="./images/62.jpg" >
+<hr>
+<h3 id="img63">12、vue-router-全局导航守卫</h3>
+<img src="./images/63.jpg" ><br>
+<hr>
+<h3 id="img64">13、vue-router-keep-alive及其他问题</h3>
+<img src="./images/64.jpg" >
+<img src="./images/65.jpg" ><br>
+<img src="./images/66.jpg" ><br>
+<hr>
+<h3 id="img67">14、tabbar-TabBar和TabBarItem组件封装</h3>
+<img src="./images/67.jpg" >
+<img src="./images/68.jpg" ><br>
+<img src="./images/69.jpg" ><br>
+<hr>
+<h3 id="img70">15、tabbar-TabBarItem和路由结合效果</h3>
+<img src="./images/70.jpg" >
+<img src="./images/71.jpg" ><br>
+<img src="./images/72.jpg" ><br>
+<hr>
+<h3 id="img73">16、tabbar-TabBarItem的颜色动态控制</h3>
+<img src="./images/73.jpg" >
+<img src="./images/74.jpg" ><br>
+
+<hr>
+<h3 id="img75">16、tabbar-TabBar 中App 页面抽离</h3>
+<img src="./images/75.jpg" >
+<img src="./images/76.jpg" >
+
 
 </body>
 </html>
