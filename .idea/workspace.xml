@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0e411476-1252-432d-a7c3-8ced0df27b85" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/test33.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vuextest/src/newwork/request.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vuextest/src/store/actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vuextest/src/store/getters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vuextest/src/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vuextest/src/store/module/moduleA.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vuextest/src/store/mutations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vuextest/src/store/mutations.type.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabbarvuecli2/src/assets/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/tabbarvuecli2/src/assets/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabbarvuecli2/src/components/MainTabBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/tabbarvuecli2/src/components/MainTabBar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabbarvuecli2/src/components/tabbar/TabBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/tabbarvuecli2/src/components/tabbar/TabBar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabbarvuecli2/src/components/tabbar/TabBarItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/tabbarvuecli2/src/components/tabbar/TabBarItem.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabbarvuecli2/src/views/category/Category.vue" beforeDir="false" afterPath="$PROJECT_DIR$/tabbarvuecli2/src/views/category/Category.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabbarvuecli2/src/views/home/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/tabbarvuecli2/src/views/home/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabbarvuecli2/src/views/profile/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/tabbarvuecli2/src/views/profile/Profile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabbarvuecli2/src/views/shop/Shop.vue" beforeDir="false" afterPath="$PROJECT_DIR$/tabbarvuecli2/src/views/shop/Shop.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test31.html" beforeDir="false" afterPath="$PROJECT_DIR$/test31.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test32.html" beforeDir="false" afterPath="$PROJECT_DIR$/test32.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuecli2test/src/assets/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/vuecli2test/src/assets/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuecli2test/src/components/About.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuecli2test/src/components/About.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuecli2test/src/components/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuecli2test/src/components/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuecli2test/src/components/HomeMessages.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuecli2test/src/components/HomeMessages.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuecli2test/src/components/HomeNews.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuecli2test/src/components/HomeNews.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuecli2test/src/components/User.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuecli2test/src/components/User.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack/build/common.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/build/common.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack/build/dev.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/build/dev.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack/build/prod.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/build/prod.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack/src/css/normal.css" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/src/css/normal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack/src/css/special.less" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/src/css/special.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack/src/js/mathUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/src/js/mathUtils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack/src/vue/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/src/vue/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack/src/vue/Cpn.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webpack/src/vue/Cpn.vue" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Less File" />
+        <option value="CSS File" />
+        <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectId" id="1gG3Ms4rT1fQn25E99vCsTXxhxG" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/vuextest/store" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Vue" />
+    <property name="settings.editor.splitter.proportion" value="0.21069959" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\xmapp\htdocs\vue2\vuejs2\vuextest\src" />
+      <recent name="G:\xmapp\htdocs\vue2\vuejs2" />
+      <recent name="G:\xmapp\htdocs\vue2\vuejs2\webpack\build" />
+      <recent name="G:\xmapp\htdocs\vue2\vuejs2\webpack" />
+      <recent name="G:\xmapp\htdocs\vue2\vuejs2\webpack\src\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\xmapp\htdocs\vue2\vuejs2\vuextest\store" />
+      <recent name="G:\xmapp\htdocs\vue2\vuejs2\tabbarvuecli2\src\assets\img\tabbar" />
+      <recent name="G:\xmapp\htdocs\vue2\vuejs2\webpack" />
+      <recent name="G:\xmapp\htdocs\vue2\vuejs2\webpack\src\img" />
+      <recent name="G:\xmapp\htdocs\vue2\vuejs2" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Node.js.index.js">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/vuejs2/webpack/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/webpack/src/index.js" working-dir="$PROJECT_DIR$/webpack/src">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.index.js" />
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0e411476-1252-432d-a7c3-8ced0df27b85" name="Default Changelist" comment="" />
+      <created>1597727056953</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597727056953</updated>
+      <workItem from="1597727058290" duration="361000" />
+      <workItem from="1597727458195" duration="338000" />
+      <workItem from="1597727809037" duration="16000" />
+      <workItem from="1597727834845" duration="666000" />
+      <workItem from="1597728508590" duration="982000" />
+      <workItem from="1597731027819" duration="78000" />
+      <workItem from="1597731166016" duration="25000" />
+      <workItem from="1597731314041" duration="44000" />
+      <workItem from="1597731384434" duration="16000" />
+      <workItem from="1597731730593" duration="1233000" />
+      <workItem from="1597831754083" duration="44312000" />
+      <workItem from="1598231074603" duration="123528000" />
+      <workItem from="1598835807347" duration="46875000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="618" y="301" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598248654987">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="618" y="301" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1598248654987" />
+    <state x="624" y="206" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598522588819">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="624" y="206" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1598522588819" />
+    <state width="1892" height="261" key="GridCell.Tab.0.bottom" timestamp="1598339203638">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1892" height="261" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598339203638" />
+    <state width="1892" height="261" key="GridCell.Tab.0.center" timestamp="1598339203638">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1892" height="261" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598339203638" />
+    <state width="1892" height="261" key="GridCell.Tab.0.left" timestamp="1598339203638">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1892" height="261" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598339203638" />
+    <state width="1892" height="261" key="GridCell.Tab.0.right" timestamp="1598339203638">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1892" height="261" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598339203638" />
+    <state x="451" y="99" key="SettingsEditor" timestamp="1597887729714">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="451" y="99" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1597887729714" />
+    <state x="532" y="231" key="run.anything.popup" timestamp="1598250845928">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="532" y="231" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598250845928" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1598854779827">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598854779827" />
+  </component>
+</project>
