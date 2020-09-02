@@ -37,3 +37,5 @@ vuejs2框架基础教程,vue教程案例实战项目
 7. [VueJS2 全局路由保护器-简单登录模拟](https://www.yht7.com/download/vuejs2/test26.html)
 8. [VueJS2 模拟向服务器请求数据](https://www.yht7.com/download/vuejs2/test27.html)
 9. [VueJS2 CLI3基础实战](https://www.yht7.com/download/vuejs2/test32.html)
+10. [VueJS2 axios框架实战/Vuex实战/promise实战](https://www.yht7.com/download/vuejs2/test33.html)
+

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Vue axios框架实战/Vuex实战/promise实战-vuejs实战教程[云海天教程]</title>
+  <meta name="keywords" content="Vue.js 教程,vue教程,新手入门教程,vue实例教程,vue基础教程,vue教程案例实战项目,最全vue项目实战">
+  <meta name="description" content="Vue axios框架实战/Vuex实战/promise实战">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" >
+  <style>
+    .t{
+      border: 1px gray solid;
+      border-spacing: 0px;
+      border-collapse: collapse;
+      width: 1100px;
+    }
+    .t td{
+      border: 1px gray solid;
+      padding: 5px;
+    }
+    .t th{
+      border: 1px gray solid;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app" class="container" style="padding-top: 50px;">
+  <p></p>
+  <table  class="t">
+    <thead>
+    <th width="25%">选择</th>
+    <th>操作</th>
+    </thead>
+    <tbody>
+    <tr>
+      <td>使用项目参考：</td>
+      <td>
+        vuextest
+      </td>
+    </tr>
+    <tr>
+      <td>promise基本语法</td>
+      <td>
+        (<a href="#img98">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>tabbar-文件路径的引用别名问题</td>
+      <td>
+        改完配置必须要从小npm run dev 才行。
+      找到根目录下的build文件夹下的webpack.base.conf.js,resolve中配置，在html中src中必须前面加~ 不然识别不到。
+        (<a href="#img77">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+
+    <tr>
+      <td>Promise-Promise的all方法使用</td>
+      <td>
+        查看文档
+      </td>
+    </tr>
+    <tr>
+      <td>vuex-基本使用<br>
+        <span style="color: red">改state 内容，一定通过mutations来修改</span>
+      </td>
+      <td>
+        在store\index.js 中state 定义，可以直接调用$store.state.counter，需要修改的话，mutations中添加方法，调用页面methods中添加方法，
+        通过this.$store.commit('increment')  [括号里面的是mutations中定义的方法名] mutations中方法默认第一个参数就是state
+      </td>
+    </tr>
+    <tr>
+      <td>vuex-单界面到多界面状态管理切换</td>
+      <td>
+        在Terminal控制台中安装vuex  npm install vuex --save  参考：https://vuex.vuejs.org/zh/installation.html<br>
+        创建store文件夹，引入vuex
+
+        (<a href="#img79">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>vuex-devtools和mutations</td>
+      <td>
+        在google浏览器上安装devtools工具,在store\index.js中mutations定义方法，在App.vue 中methods引用通过commit 提交
+        (<a href="#img81">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>vuex-state单一状态树的理解</td>
+      <td>
+        一个项目只建立一个 store ，不建立多个
+      </td>
+    </tr>
+
+    <tr>
+      <td>vuex-getters的使用详解</td>
+      <td>
+      当显示的内容需要改变时，把内容写到getters 里面，通过store.getters.more2 调用getters中的属性名称，在getters的方法里面可以重复调用方法,
+        传递参数 需要使用return 方法返回，
+        (<a href="#img84">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>vuex-mutations的携带参数</td>
+      <td>
+        methods中 commit提交 单参数一般是直接跟参数名，多参数是放到对象中，后面加对象名
+        (<a href="#img86">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>vuex-mutations的提交风格</td>
+      <td>
+        特殊的提交风格 需要将参数当对象来显示，然后从对象里面引用出来具体的值
+        (<a href="#img88">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>vuex-数据的响应式原理</td>
+      <td>
+        state中的值从一开始就被加入到响应式中，而响应式系统会监听这些属性变化，当属性发生变化时，会通知所有页面用到该属性的页面刷新
+        (<a href="#img89">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+
+    <tr>
+      <td>vuex-mutations的类型常量</td>
+      <td>
+        一般怕写错，都是将变量写到一个文件里面，先创建类型常量文件，声明变量，然后引入调用，
+        (<a href="#img90">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>vuex-actions的使用详解</td>
+      <td>
+        mutations中一般都是同步方法，异步方法无法跟踪导致错误。必须要用异步操作，则使用actions来替代<br>
+        有异步操作用dispatch ，在actions【默认参数context】 中执行异步通过 commit来提交，commit括号中提交的是mutations中的方法名,改成功
+        后通知页面采用回调显示。
+        (<a href="#img93">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>vuex-modules的使用详解</td>
+      <td>
+        使用跟上面的之前的类似，只是因为太多，分开会更明确，主要是调用显示方法有点区别
+        (<a href="#img95">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>vuex-store文件夹的目录组织</td>
+      <td>
+          将store中 index的 state\mutations\actions\getters\modules 抽离
+        (<a href="#img97">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>axios框架的基本使用</td>
+      <td>
+        参考：http://www.axios-js.com/zh-cn/docs/
+      首先项目中安装 npm install axios --save,import axios 引入
+        (<a href="#img99">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>axios发送并发请求</td>
+      <td>
+        使用axios.all
+        (<a href="#img100">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>axios的配置信息相关</td>
+      <td>
+        axios.defaults. 来定义全局配置
+        (<a href="#img101">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>axios实例与模块封装</td>
+      <td>
+      创建抽离文件newwork\request.js采用封装方式 回调函数 与 new Promise 来实现
+        (<a href="#img103">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+    <tr>
+      <td>axios拦截器的使用</td>
+      <td>
+        在请求或响应被 then 或 catch 处理前拦截它们。返回想要的结果
+        (<a href="#img105">具体可以参考下面图片</a>)
+      </td>
+    </tr>
+
+    <tr>
+      <td>将本地远远程github连接，本地内容直接提交</td>
+      <td>
+        在github 上新建一个，执行这2个命令，后面的是项目地址【根据实际情况修改】
+        git remote add origin https://github.com/yht7com/test.git<br>
+        git push -u origin master
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+  <hr>
+</div>
+<hr>
+<h3 id="img98">promise基本用法</h3>
+<img src="./images/98.jpg" >
+
+<hr>
+<h3 id="img77">1、tabbar-文件路径的引用问题</h3>
+<img src="./images/77.jpg" >
+<img src="./images/78.jpg" >
+<hr>
+<h3 id="img79">2、vuex-单界面到多界面状态管理切换</h3>
+<img src="./images/79.jpg" >
+<img src="./images/80.jpg" >
+<hr>
+<h3 id="img81">2、vuex-devtools和mutations</h3>
+<img src="./images/81.jpg" >
+<img src="./images/82.jpg" >
+<img src="./images/83.jpg" >
+<hr>
+<h3 id="img84">3、vuex-devtools和mutations</h3>
+<img src="./images/84.jpg" >
+<img src="./images/85.jpg" >
+<hr>
+<h3 id="img86">4、vuex-devtools和mutations</h3>
+<img src="./images/86.jpg" >
+<img src="./images/87.jpg" >
+<hr>
+<h3 id="img88">5、vuex-mutations的提交风格</h3>
+<img src="./images/88.jpg" >
+<hr>
+<h3 id="img89">5、vuex-数据的响应式原理</h3>
+<img src="./images/89.jpg" >
+<hr>
+<h3 id="img90">6、vuex-mutations的类型常量</h3>
+<img src="./images/90.jpg" >
+<img src="./images/91.jpg" >
+<img src="./images/92.jpg" >
+<hr>
+<h3 id="img93">7、vuex-actions的使用详解</h3>
+<img src="./images/93.jpg" >
+<img src="./images/94.jpg" >
+<hr>
+<h3 id="img95">8、vuex-modules的使用详解</h3>
+<img src="./images/95.jpg" >
+<img src="./images/96.jpg" >
+<hr>
+<h3 id="img97">9、vuex-modules的使用详解</h3>
+<img src="./images/97.jpg" >
+<hr>
+<h3 id="img99">10、axios框架的基本使用</h3>
+<img src="./images/99.jpg" >
+<hr>
+<h3 id="img100">11、axios发送并发请求</h3>
+<img src="./images/100.jpg" >
+<hr>
+<h3 id="img101">12、axios的配置信息相关</h3>
+<img src="./images/101.jpg" >
+<img src="./images/102.jpg" >
+<hr>
+<h3 id="img103">14、axios实例与模块封装</h3>
+<img src="./images/103.jpg" >
+<img src="./images/104.jpg" >
+<hr>
+<h3 id="img105">15、axios拦截器的使用</h3>
+<img src="./images/105.jpg" >
+
+</body>
+</html>
